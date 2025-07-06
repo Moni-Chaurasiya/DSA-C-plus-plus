@@ -32,7 +32,7 @@ int main(){
                 cout<<" ";
             }
         }
-          for(int k=(i-1); k>=0; k--){
+          for(int k=(i-1); k>0; k--){
               if ( i== n|| k == 1 ){
               cout<<k;
               }
@@ -42,5 +42,5 @@ int main(){
         }
         cout<<endl;
     }
-    return 0;
+   // return 0;
 }

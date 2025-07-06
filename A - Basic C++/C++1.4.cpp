@@ -49,7 +49,7 @@ int main(){
     cout << "Enter number:";
     cin >> n;
 
-    for (int i = 1; i <= pow(2, n - 1); i += 2) {
+    for (int i = 1; i <= pow(2, n - 1); i *= 2) {
         cout << i << endl;
     }
 
