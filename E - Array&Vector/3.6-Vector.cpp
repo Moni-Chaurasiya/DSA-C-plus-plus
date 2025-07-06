@@ -30,7 +30,13 @@ int main(){
         cout<<v[i]<<" ";
     }
     cout<<endl;
-    
+
+// In C++, the capacity of a std::vector refers to the total number of elements the vector can hold without needing to reallocate memory. 
+// It is distinct from the size, which represents the number of elements currently stored in the vector.
+
+// Relationship with size():
+// The capacity() is always greater than or equal to the size(). When size() equals capacity(), the next insertion will likely trigger a reallocation and an increase in capacity.
+
       vector<int> m;    // Size   Capacity
        m.push_back(6);  //  1       1
        m.push_back(2);  //  2       2     capacity double because in previous one both size and capacity is same
@@ -70,7 +76,8 @@ int main(){
      cout<<m.at(2)<<endl;
 
       sort(m.begin(),m.end());
-      for(unsigned int i=0; i<m.size()-1;i++){   // m.size() is an unsigned integer 
+      cout<<"size of m is "<<m.size()<<"  " ;
+      for(unsigned int i=0; i<m.size();i++){   // m.size() is an unsigned integer 
         cout<<m.at(i)<<" ";
       }
 
