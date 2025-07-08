@@ -9,8 +9,9 @@ int main(){
   cout<<" Enter String:"<<endl;
   getline(cin,s);
   string temp;
-  stringstream ss(s);
-  while(ss>>temp){
+  cout<<temp<<endl;
+  stringstream ss(s);  // Create stringstream object from string s
+  while(ss>>temp){     // Extracts one word at a time (space-separated)
     cout<<temp<<endl;
   }
 

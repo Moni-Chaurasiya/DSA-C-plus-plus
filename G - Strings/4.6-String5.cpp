@@ -28,6 +28,29 @@ int main(){
         cout<<"Strings are not anagram"<<endl;
     }
 
+    // Print the character that is occuring most number of times
+
+string a;
+cout<<"Enter String"<<endl;
+cin>>a;
+int ln= a.length();
+int mostch= 0;
+int c=1;
+sort(a.begin(),a.end());
+for(int i=0;i<ln-1;i++){
+    if(a[i]==a[i+1]){ //error
+        c++;
+    }else{
+        if(mostch<c){
+            mostch=c;
+            c=1;
+        }
+    }
+}
+if(mostch<c){
+    mostch=c;
+}
+cout<<"Most number of times occuring characters "<<mostch<<endl;
 
     // Print the character that is occuring most number of times
     string s;   

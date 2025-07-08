@@ -73,8 +73,21 @@
          c++;
        }
 
-       i = 1, k^2, k^3, k^4, k^5, ... k^x   
+       i = 0, k, 2k, 3k, 4k, 5k, ... m*k   
+       This loop will end when m*k > n
+       Time complexity is O(n/k) = O(n)
+    
+    
+       int c=0;
+       for(int i=1; i<=n; i*=k){
+         c++;
+       }
+
+       i = 1, k, k^2, k^3, k^4, k^5, ... k^x   
        This loop will end when k^x > n
+       Taking log both side  log(k^x) > log(n)
+                            = xlogk >log(n) => x = log(n)/log(x)
+                            => O(x) = O(log n)  
        Time complexity is O(x) =O(log k n) =O(log n)
 
     e.  int c=0;
@@ -117,10 +130,17 @@
        vector<int> b[m];
        for(int i=0;i<n; i++){
         for(int j=0;j<m; j++){
-         a[i]=i;                  --> Space Complexity is O(n*m) &  Time Complexity is O(n+m) 
-         b[j]=j;
+         a[i].push_back(i);                  --> Space Complexity is O(n*m) &  Time Complexity is O(n*m) 
+         b[j].push_back(j);
         }
        }       
+
+      for (int i = 0; i < n; i++) {
+          a[i].push_back(i);
+      }
+      for (int j = 0; j < m; j++) {
+          b[j].push_back(j);
+      }                                     --> Space Complexity is O(n+m) &  Time Complexity is O(n+m) 
 
     e. Space complexity of creating 2D matrix
         int arr[m][n];            --> space complexity is O(m*n)  
@@ -149,13 +169,13 @@
                                                                     = O(k.log 2 n) = O(log n ) 
 
     i. int c=0;
-       for(i=0;i<n; i+=i){
+       for(i=1;i<n; i+=i){
         for(j=0;j<i; j++){
          c++;   
         }
-       }                                                               
+       }                    // Outer loop -> O(log n)  and Inner loop -> O(n)                                           
 
-       i=0, j=0 -->1   
+       i=1, j=0 -->1   
        i=2, j=0,1 -->2  
        i=4, j=0,1,2,3 -->4  
        i=8, j=0,1,2,3,4,5,6,7 -->8     
@@ -176,7 +196,7 @@
 
 
     j. int c=0;
-      for(int i=1;i<=n;i++){        Time Complexity =  O(logn)
+      for(int i=1;i<=n;i*=2){        Time Complexity =  O(logn)
           for(int j=n;j>=0;j--){    Time Complexity =  O(n)
               c++;
           }

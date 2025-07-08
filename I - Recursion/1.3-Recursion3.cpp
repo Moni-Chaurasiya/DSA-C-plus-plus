@@ -2,7 +2,13 @@
 #include<string>
 #include<vector>
 using namespace std;
+// Q: Write a recursive function to print all subsets of a given string.
 
+// Given a string, print all possible subsets (including the empty set), where each character has two choices:
+
+// Either include it in the subset
+
+// Or exclude it
 void subSet(string original,string str1){
      if(original=="") {
         cout<<str1<<endl;
@@ -30,6 +36,65 @@ void subSet3(string original,string str1,vector<string>& v){
      subSet3(original.substr(1),str1+ch,v);
      subSet3(original.substr(1),str1,v);
 }
+// To print all subsets of an array. Each element has two choices:
+
+// Exclude it
+
+// Include it
+
+/*
+Start with:
+
+printSubset([1, 2], 2, 0, [])
+You’re at idx = 0 (element 1). You have two choices:
+
+⚪ Exclude 1
+
+printSubset([1, 2], 2, 1, [])
+At idx = 1 (element 2):
+
+⚪ Exclude 2 → printSubset([1, 2], 2, 2, [])
+
+idx == len → print: "" (empty line)
+
+⚫ Include 2 → ans = [2] → printSubset([1, 2], 2, 2, [2])
+
+print: 2
+
+⚫ Include 1 → ans = [1]
+
+printSubset([1, 2], 2, 1, [1])
+At idx = 1 (element 2):
+
+⚪ Exclude 2 → printSubset([1, 2], 2, 2, [1])
+
+print: 1
+
+⚫ Include 2 → ans = [1, 2] → printSubset([1, 2], 2, 2, [1, 2])
+
+print: 1 2
+
+
+These are all 2² = 4 subsets of {1, 2}:
+
+[]
+
+[2]
+
+[1]
+
+[1, 2]
+
+Time Complexity
+There are 2ⁿ subsets, so time complexity is:
+
+O(2^n × n)  
+Because:
+
+2ⁿ subsets
+
+Each subset may take up to O(n) time to print
+*/
 void printSubset(int arr[],int len,int idx,vector<int> ans){
      if(idx==len) {
        for(unsigned int i=0;i<ans.size();i++){
@@ -38,12 +103,14 @@ void printSubset(int arr[],int len,int idx,vector<int> ans){
        cout<<endl;
        return;
      } 
+     // Exclude current element
      printSubset(arr,len,idx+1,ans);
+     // Include current element
      ans.push_back(arr[idx]);
      printSubset(arr,len,idx+1,ans);
 
 }
-
+//Q: Generate all subsets of a given string such that duplicate consecutive characters are not included more than once unless the first one is included.
 void storeSubset(string ans,string original,vector<string>&v,bool flag){
    if(original==""){
       v.push_back(ans);
@@ -64,6 +131,8 @@ void storeSubset(string ans,string original,vector<string>&v,bool flag){
       storeSubset(ans,original.substr(1),v,true);
    }
 }
+
+//Q: Given an array of integers, print all subsets of length k using recursion.
 
 void printSubsetLen3(int arr[],int len,int idx,vector<int> ans,unsigned int k){
      if(idx==len) {
@@ -86,7 +155,7 @@ void printSubsetLen3(int arr[],int len,int idx,vector<int> ans,unsigned int k){
 
 }
 
-
+// print all possible arrangements (permutations) of the letters in a string.
 void permutation(string original,string str1){
      if(original=="") {
          cout<<str1<<endl;
@@ -114,7 +183,9 @@ int main(){
     string str1="";
     vector<string> v;
     subSet(original,str1);
+    cout<<endl;
     subSet2(original,str1,0);
+    cout<<endl;
     subSet3(original,str1,v);
 
     for(string ele:v){

@@ -135,6 +135,8 @@ int stair3(int n){
    if(n==3) return 4;
    return stair3(n-1)+stair3(n-2)+stair3(n-3);
 }
+// Q:
+// You are given a grid (maze) of size er × ec (ending at position (er, ec)) starting from the top-left corner (sr, sc). You can only move right or down at each step. Write a function to calculate the total number of unique paths from the starting cell (sr, sc) to the ending cell (er, ec).
 int maze(int sr,int sc, int er, int ec){
     if(sr>er||sc>ec) return 0;
     if(sr==er && sc==ec) return 1;

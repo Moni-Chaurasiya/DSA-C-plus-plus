@@ -4,7 +4,7 @@
 #include<algorithm>
 
 using namespace std;
-
+//Q: Write a recursive function to remove all occurrences of the character 'a' from a given string and print the resulting string.
 void removeChar(string ans,string original){
     int len= original.length();
     if(len==0) {
@@ -95,7 +95,8 @@ int main(){
     int original[]={1,5,7,4,1,1,8};
     int originalSize= sizeof(original)/sizeof(original[0]);
     int arr[originalSize]={};
-    removeOnce(arr,original,originalSize);
+    int idx=0;
+    removeOnce(arr,original,originalSize,idx);
 
     int n=3;
     hanoi(n,'A','B','C');
