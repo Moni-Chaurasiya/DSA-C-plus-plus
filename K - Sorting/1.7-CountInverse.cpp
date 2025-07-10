@@ -7,7 +7,18 @@ int inversion(vector<int>& nums1, vector<int>& nums2){
     int i=0;
     int j=0;
     while(i<nums1.size() && j<nums2.size()){
-        if(nums1[i]>nums2[j]){
+        /*
+         When nums1[i] > nums2[j]:
+         Because nums1 is sorted, all elements from nums1[i] to nums1[n-1] will be greater than nums2[j].
+
+         So, the number of inversions is (nums1.size() - i) — we add this to the total c.
+
+         Move j ahead to check next element in nums2.
+
+         🔁 When nums1[i] <= nums2[j]:
+         No inversion is formed. Move i ahead.
+        */
+        if(nums1[i]>nums2[j]){  
            c+= (nums1.size()-i);
            j++;
         }

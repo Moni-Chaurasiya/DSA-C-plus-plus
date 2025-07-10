@@ -50,6 +50,13 @@ void mergeSort(vector<int>& v) {
 int main() {
     int arr[] = {5, 3, 1, 6, 7, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
+    /*
+    In vector<int> v(arr, arr + n);
+
+    arr: is the starting pointer (beginning of array).
+
+    arr + n: is the ending pointer (one-past-the-end), not the value.
+    */
     vector<int> v(arr, arr + n);
 
     cout << "Original array: ";

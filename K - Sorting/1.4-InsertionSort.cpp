@@ -3,7 +3,7 @@
 #include<vector>
 using namespace std;
 int main(){
-    //Selection Sort -->  Sorted    5|4 1 3 2   Unsorted
+    // Insertion Sort -->  Sorted    5|4 1 3 2   Unsorted
     //                    Sorted    4 5|1 3 2   Unsorted
     //                    Sorted    1 4 5|3 2   Unsorted
     //                    Sorted    1 3 4 5|2   Unsorted

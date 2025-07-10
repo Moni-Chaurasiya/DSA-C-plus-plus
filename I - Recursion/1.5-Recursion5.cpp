@@ -2,6 +2,10 @@
 #include<string>
 #include<vector>
 using namespace std;
+
+//To find and print all combinations of elements from arr[] that sum up to target, where you can use the same element multiple times.
+
+
 void combination(vector<int> v,int arr[],int n,int target,int idx){
     if(target ==0){
         for(unsigned int i=0;i<v.size();i++){
@@ -19,6 +23,9 @@ void combination(vector<int> v,int arr[],int n,int target,int idx){
     }
 
 }
+
+//To print all valid combinations of n pairs of parentheses.
+
 
 void generate(string s,int open,int close,int n){
     if(close==n){
@@ -66,3 +73,17 @@ int main(){
     getPermutation( x, k);
 
 }
+
+/*
+| Function                 | Time Complexity   | Space Complexity | Notes                         |
+| ------------------------ | ----------------- | ---------------- | ----------------------------- |
+| `subSet`                 | O(2ⁿ × n)         | O(n)             | Classic subset generation     |
+| `printSubset`            | O(2ⁿ × n)         | O(n)             | Same logic as `subSet`        |
+| `storeSubset`            | < O(2ⁿ)           | O(n)             | Optimized with `flag`         |
+| `printSubsetLen3`        | O(C(n, k) × k)    | O(k)             | Pruned subset of fixed length |
+| `permutation`            | O(n! × n)         | O(n)             | All permutations              |
+| `combination`            | O(2^(target/min)) | O(target)        | Repetition allowed            |
+| `generate` (parentheses) | O(4ⁿ / √n)        | O(n)             | Catalan number count          |
+| `getPermutation`         | O(n²)             | O(n)             | Math + greedy algorithm       |
+
+*/

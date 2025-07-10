@@ -13,7 +13,16 @@ int BinaryToDecimal(const string &binary) {
     }
     return decimal;
 }
+/*
 
+| i | s\[i] | numb | 1 << (n - i - 1) | Contribution | decimal |
+| - | ----- | ---- | ---------------- | ------------ | ------- |
+| 0 | '1'   | 1    | 1 << 3 = 8       | 1 \* 8 = 8   | 8       |
+| 1 | '0'   | 0    | 1 << 2 = 4       | 0 \* 4 = 0   | 8       |
+| 2 | '1'   | 1    | 1 << 1 = 2       | 1 \* 2 = 2   | 10      |
+| 3 | '1'   | 1    | 1 << 0 = 1       | 1 \* 1 = 1   | 11      |
+
+*/
 int count_set_bits(int n){
     return __builtin_popcount(n);
 }
@@ -45,7 +54,7 @@ int  count_set_bits2(int n){
 
 int main() {
 
-    string binary = "1000";
+    string binary = "1111";
     int result = BinaryToDecimal(binary);  // Call the function and store the result
     cout << result << endl;  // Print the result
     cout << decimal_to_binary(13)<<endl;
