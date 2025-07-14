@@ -13,6 +13,26 @@ void factor(int n){
     }
    
 }
+/*
+Every factor of n comes in pairs:
+
+If i divides n, then n/i is also a factor.
+
+For example:
+
+For n = 36
+Pairs of factors are:
+
+(1, 36)
+
+(2, 18)
+
+(3, 12)
+
+(4, 9)
+
+(6, 6) ← special case (√n)
+*/
 int main(){
    int n;
     cout << "Enter a number" << endl;
