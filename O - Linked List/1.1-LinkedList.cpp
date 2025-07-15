@@ -58,47 +58,58 @@ void insertAtEnd(Node *head, int val)
 }
 int main()
 {
-    // Creating linked list
-    // 10 20 30 40
+    // Creating linked list nodes
     Node a(10);
     Node b(20);
     Node c(30);
     Node d(40);
 
+    // Connecting nodes to form a linked list: 10 -> 20 -> 30 -> 40
     a.next = &b;
     b.next = &c;
     c.next = &d;
     d.next = NULL;
 
+    // Using pointer manipulation
     Node *ptr = &b;
+    
+    // Modifying the value of node b through pointer
     (*ptr).val = 60;
     ptr->val = 60;
-    cout << b.val << endl; // 60
+
+    // Outputting the value of node b (now modified)
+    cout << b.val << endl; // Output: 60
+
+    // Changing value of node b through pointer
     ptr->val = 40;
-    cout << b.val << endl; // 40
 
-    cout << (*(a.next)).val; // 40
+    // Outputting the value of node b (reset back to original value)
+    cout << b.val << endl; // Output: 40
+
+    // Demonstrating different ways to access node values through pointers
+    cout << (*(a.next)).val; // Output: 40
     cout << endl;
-    cout << a.next->val << endl; // 40
+    cout << a.next->val << endl; // Output: 40
+
+    // Modifying value of node c indirectly through node a's next pointer
     (a.next)->val = 70;
-    cout << b.val << endl; // 70
+    cout << b.val << endl; // Output: 70
 
-    // a-->d
-    cout << ((a.next)->next)->val << endl;               // 30
-    cout << (((a.next)->next)->next)->val << endl;       // 40
-    cout << (*((*((*(a.next)).next)).next)).val << endl; // 40
+    // Traversing the linked list from node a to node d
+    cout << ((a.next)->next)->val << endl;       // Output: 30
+    cout << (((a.next)->next)->next)->val << endl; // Output: 40
+    cout << (*((*((*(a.next)).next)).next)).val << endl; // Output: 40
 
+    // Traversing and printing the linked list using a temporary node
     Node temp = a;
     while (temp.next != NULL)
     {
         cout << temp.val << " ";
-        if (temp.next == NULL)
-            break;
         temp = *(temp.next);
     }
-
     cout << endl;
 
+    // Creating a linked list using dynamic memory allocation
     Node *p = new Node(10);
     Node *q = new Node(20);
     Node *r = new Node(30);
@@ -106,25 +117,20 @@ int main()
     p->next = q;
     q->next = r;
     r->next = s;
-    cout << (*p).val << endl;
-    cout << (*q).next << endl;
+
+    // Outputting values of nodes using pointers
+    cout << (*p).val << endl; // Output: 10
+    cout << (*q).next << endl; // Output: Address of node r (next node)
+    
+    // Traversing and printing the linked list using a temporary pointer
     Node *tem = p;
     while (tem != NULL)
     {
         cout << tem->val << " ";
         tem = tem->next;
     }
-    cout << p->next->val << endl;
-    cout << p->next->next->val << endl;
-
-    display(p);
-    cout << endl;
-    cout << size(p) << endl;
-    displayrec(p);
-    cout << endl;
-    reverseDisplay(p);
-
-    display(p);
-    insertAtEnd(p, 80);
-    display(p);
+    cout << p->next->val << endl; // Output: 20
+    cout << p->next->next->val << endl; // Output: 30
+    
+    return 0;
 }
