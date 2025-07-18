@@ -11,7 +11,7 @@ Applications of tree Data Structure
 --> Hierarchical data structure
 --> Searching efficiency
 --> Sorting
---> Dynamic Dta
+--> Dynamic Data
 --> Efficient Insertion and Deletion
 --> Easy to implement
 

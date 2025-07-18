@@ -15,47 +15,59 @@ public:
         this->right = NULL;
     }
 };
-
 Node *construct(int arr[], int n)
 {
-    queue<Node *> q;
-    Node *root = new Node(arr[0]);
-    q.push(root);
-    int i = 1;
-    int j = 2;
+    queue<Node *> q;  // Queue to manage the nodes during construction
+    Node *root = new Node(arr[0]);  // Create the root node from the first element in the array
+    q.push(root);  // Push the root node onto the queue
+    int i = 1;  // Index to traverse the array
+    int j = 2;  // Index to track the positions of left and right children in the array
+
+    // Process the array elements to construct the binary tree
     while (q.size() > 0 && i < n)
     {
-        Node *temp = q.front();
-        q.pop();
-        Node *l;
-        Node *r;
+        Node *temp = q.front();  // Get the front node from the queue
+        q.pop();  // Remove the front node from the queue
+
+        Node *l;  // Pointer for the left child node
+        Node *r;  // Pointer for the right child node
+
+        // Create a new node for the left child if the array element is not INT8_MIN
         if (arr[i] != INT8_MIN)
         {
             l = new Node(arr[i]);
         }
         else
         {
-            l = NULL;
+            l = NULL;  // Set to NULL if the array element is INT8_MIN
         }
+
+        // Create a new node for the right child if it exists and the array element is not INT8_MIN
         if (j != n && arr[j] != INT8_MIN)
         {
             r = new Node(arr[j]);
         }
         else
         {
-            r = NULL;
+            r = NULL;  // Set to NULL if the right child does not exist or the element is INT8_MIN
         }
-        temp->left = l;
-        temp->right = r;
+
+        temp->left = l;  // Link the left child node to the current node
+        temp->right = r;  // Link the right child node to the current node
+
+        // Push the non-null child nodes onto the queue for further processing
         if (l != NULL)
             q.push(l);
         if (r != NULL)
             q.push(r);
-        i += 2;
+
+        i += 2;  // Increment indices for the next pair of children
         j += 2;
     }
-    return root;
+
+    return root;  // Return the root node of the constructed binary tree
 }
+
 void levelOrderQueue(Node *root)
 {
     queue<Node *> q;

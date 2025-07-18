@@ -88,7 +88,7 @@ int main()
     c->left = f;
     c->right = g;
     // DFS --> Depth first Search
-    displayPreOrder(a); // 1 2 4 5 3 6 7  --> PreOrder -->root, left, order
+    displayPreOrder(a); // 1 2 4 5 3 6 7  --> PreOrder -->root, left, right
     cout << endl;
     displayPostOrder(a); //  4 5 2 6 7 3 1 --> PostOrder --> left, right, root
     cout << endl;
