@@ -1,6 +1,25 @@
 #include <iostream>
 #include <queue>
 using namespace std;
+
+/*
+| Declaration                                      | Behavior | Top Element |
+| ------------------------------------------------ | -------- | ----------- |
+| `priority_queue<int>`                            | Max-Heap | Largest     |
+| `priority_queue<int, vector<int>, greater<int>>` | Min-Heap | Smallest    |
+
+*/
+
+/*
+When do we use Min-Heap (greater<int>)?
+Finding Kth largest/smallest
+
+Merging sorted arrays
+
+Dijkstra's algorithm
+
+Sliding window problems
+*/
 int main()
 {
     priority_queue<int> pqLarge;
